@@ -1,6 +1,5 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-import win32api
 import time
 
 def marcar_checks(check1, check2):
