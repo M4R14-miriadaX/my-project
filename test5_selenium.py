@@ -54,6 +54,7 @@ try:
     # Comprobamos que se ha pulsado en el botón Cancelar del pop up de aviso anterior
     assert driver.find_element(By.CSS_SELECTOR, '#result').text == 'You clicked: Cancel'
 
+    # Paramos la ejecución 3 segundos
     time.sleep(3)
 
     # Buscamos el elemento de la página cuyo texto es 'Click for JS Prompt'
@@ -83,7 +84,6 @@ try:
 
     # Paramos la ejecución 3 segundos
     time.sleep(3)
-
 finally:
     # Cerramos la ventana del navegador
     driver.quit()
