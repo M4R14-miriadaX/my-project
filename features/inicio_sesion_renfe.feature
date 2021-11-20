@@ -1,6 +1,6 @@
 Feature: start session
 
- Scenario: start session required when buying a ticket
+ Scenario: start session is required when buying a ticket
    Given Renfe web is up
    When select Madrid as origin
    And select Barcelona as destination
@@ -9,4 +9,4 @@ Feature: start session
    And find tickets
    Then tickets are shown
    When select one ticket
-   Then start session required
+   Then start session is required
