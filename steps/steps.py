@@ -27,7 +27,7 @@ def step_impl(context):
     assert context.failed is False
 
 # Pasos para 'titulo_correcto.feature' (que es la feature asociada a test1_unittest.py)
-@given('chrome is up')
+@given('Chrome is up')
 def step_impl(context):
     pass
 
@@ -123,8 +123,6 @@ def step_impl(context):
 @when('select travel date next week')
 def step_impl(context):
     # Se debe usar context para utilizar la misma ventana durante todo el test
-    dia_desplegable = context.driver.find_element(By.CSS_SELECTOR, '#datepicker > div > input')
-    dia_desplegable.click()
     seleccionador_fecha = context.driver.find_element(By.CSS_SELECTOR, '#datepicker > div > div > button:nth-child(2) > i')
     for i in range(1, 8):
         seleccionador_fecha.click()
@@ -137,8 +135,11 @@ def step_impl(context):
     
 @then('tickets are shown')
 def step_impl(context):
-    # Se debe usar context para utilizar la misma ventana durante todo el test
-    assert (context.driver.find_element(By.CSS_SELECTOR, '#wrapper > section.content.header-user > div:nth-child(1) > section > div:nth-child(1) > ul > li').text == 'ELEGIR TREN')
+    try:
+        # Se debe usar context para utilizar la misma ventana durante todo el test
+        assert (context.driver.find_element(By.CSS_SELECTOR, '#wrapper > section.content.header-user > div:nth-child(1) > section > div:nth-child(1) > ul > li').text == 'ELEGIR TREN')
+    finally:
+        pass
 
 @when('select one ticket')
 def step_impl(context):
@@ -155,8 +156,11 @@ def step_impl(context):
     entendido_boton = context.driver.find_element(By.CSS_SELECTOR,'#cerrarConfirmacionMaletasAVLO')
     entendido_boton.click()
 
-@then('start session required')
+@then('start session is required')
 def step_impl(context):
-    # Se debe usar context para utilizar la misma ventana durante todo el test
-    time.sleep(5)
-    assert (context.driver.find_element(By.CSS_SELECTOR, '#modal-login-title').text == 'INICIA SESIÓN PARA PODER REALIZAR TU COMPRA')
+    try:
+        # Se debe usar context para utilizar la misma ventana durante todo el test
+        time.sleep(5)
+        assert (context.driver.find_element(By.CSS_SELECTOR, '#modal-login-title').text == 'INICIA SESIÓN PARA PODER REALIZAR TU COMPRA')
+    finally:
+        pass

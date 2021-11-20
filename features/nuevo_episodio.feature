@@ -9,4 +9,4 @@ Feature: new episode
 
    Examples:
     | navegador | web      | episodio |
-    | chrome    | AnimeFLV | 999      |
+    | Chrome    | AnimeFLV | 999      |
